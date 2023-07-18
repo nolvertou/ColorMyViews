@@ -26,7 +26,10 @@ class MainActivity : AppCompatActivity() {
                 binding.boxThree,
                 binding.boxFour,
                 binding.boxFive,
-                binding.root
+                binding.root,
+                binding.redButton,
+                binding.greenButton,
+                binding.yellowButton
                 )
         for (item in clickableViews){
             item.setOnClickListener { makeColored(it)}
@@ -46,6 +49,12 @@ class MainActivity : AppCompatActivity() {
                 ContextCompat.getColor(this@MainActivity,android.R.color.holo_green_dark))
             R.id.box_five -> view.setBackgroundColor(
                 ContextCompat.getColor(this@MainActivity,android.R.color.holo_blue_dark))
+
+            // Boxes using custom colors for brackground
+            R.id.green_button -> binding.boxThree.setBackgroundResource(R.color.my_green)
+            R.id.red_button -> binding.boxFour.setBackgroundResource(R.color.my_red)
+            R.id.yellow_button -> binding.boxFive.setBackgroundResource(R.color.my_yellow)
+
             else -> view.setBackgroundColor(Color.LTGRAY)
         }
     }
